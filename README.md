@@ -90,7 +90,7 @@ except ApiException as e:
 configuration = pyTB.Configuration()
 configuration.api_key['X-Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Authorization'] = 'Bearer'
+configuration.api_key_prefix['X-Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = pyTB.AdminControllerApi(pyTB.ApiClient(configuration))
