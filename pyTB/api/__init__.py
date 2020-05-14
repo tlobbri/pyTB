@@ -1,0 +1,46 @@
+from __future__ import absolute_import
+
+# flake8: noqa
+
+# import apis into api package
+from pyTB.api.admin_controller_api import AdminControllerApi
+from pyTB.api.alarm_controller_api import AlarmControllerApi
+from pyTB.api.asset_controller_api import AssetControllerApi
+from pyTB.api.audit_log_controller_api import AuditLogControllerApi
+from pyTB.api.auth_controller_api import AuthControllerApi
+from pyTB.api.blob_entity_controller_api import BlobEntityControllerApi
+from pyTB.api.component_descriptor_controller_api import ComponentDescriptorControllerApi
+from pyTB.api.converter_controller_api import ConverterControllerApi
+from pyTB.api.custom_menu_controller_api import CustomMenuControllerApi
+from pyTB.api.custom_translation_controller_api import CustomTranslationControllerApi
+from pyTB.api.customer_controller_api import CustomerControllerApi
+from pyTB.api.dashboard_controller_api import DashboardControllerApi
+from pyTB.api.device_api_controller_api import DeviceApiControllerApi
+from pyTB.api.device_controller_api import DeviceControllerApi
+from pyTB.api.entity_group_controller_api import EntityGroupControllerApi
+from pyTB.api.entity_relation_controller_api import EntityRelationControllerApi
+from pyTB.api.entity_view_controller_api import EntityViewControllerApi
+from pyTB.api.event_controller_api import EventControllerApi
+from pyTB.api.group_permission_controller_api import GroupPermissionControllerApi
+from pyTB.api.http_integration_controller_api import HttpIntegrationControllerApi
+from pyTB.api.integration_controller_api import IntegrationControllerApi
+from pyTB.api.ocean_connect_integration_controller_api import OceanConnectIntegrationControllerApi
+from pyTB.api.owner_controller_api import OwnerControllerApi
+from pyTB.api.report_controller_api import ReportControllerApi
+from pyTB.api.role_controller_api import RoleControllerApi
+from pyTB.api.rpc_controller_api import RpcControllerApi
+from pyTB.api.rule_chain_controller_api import RuleChainControllerApi
+from pyTB.api.rule_engine_controller_api import RuleEngineControllerApi
+from pyTB.api.scheduler_event_controller_api import SchedulerEventControllerApi
+from pyTB.api.self_registration_controller_api import SelfRegistrationControllerApi
+from pyTB.api.sig_fox_integration_controller_api import SigFoxIntegrationControllerApi
+from pyTB.api.sign_up_controller_api import SignUpControllerApi
+from pyTB.api.t_mobile_iot_cdp_integration_controller_api import TMobileIotCdpIntegrationControllerApi
+from pyTB.api.telemetry_controller_api import TelemetryControllerApi
+from pyTB.api.tenant_controller_api import TenantControllerApi
+from pyTB.api.thing_park_integration_controller_api import ThingParkIntegrationControllerApi
+from pyTB.api.user_controller_api import UserControllerApi
+from pyTB.api.user_permissions_controller_api import UserPermissionsControllerApi
+from pyTB.api.white_labeling_controller_api import WhiteLabelingControllerApi
+from pyTB.api.widget_type_controller_api import WidgetTypeControllerApi
+from pyTB.api.widgets_bundle_controller_api import WidgetsBundleControllerApi

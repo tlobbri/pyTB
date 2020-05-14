@@ -1,0 +1,841 @@
+# pyTB.DeviceControllerApi
+
+All URIs are relative to *//dashboard.digitalconstructionhub.ovh/*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**claim_device_using_post1**](DeviceControllerApi.md#claim_device_using_post1) | **POST** /api/customer/device/{deviceName}/claim{?subCustomerId} | claimDevice
+[**delete_device_using_delete**](DeviceControllerApi.md#delete_device_using_delete) | **DELETE** /api/device/{deviceId} | deleteDevice
+[**find_by_query_using_post1**](DeviceControllerApi.md#find_by_query_using_post1) | **POST** /api/devices | findByQuery
+[**get_customer_devices_using_get**](DeviceControllerApi.md#get_customer_devices_using_get) | **GET** /api/customer/{customerId}/devices{?type,textSearch,idOffset,textOffset,limit} | getCustomerDevices
+[**get_device_by_id_using_get**](DeviceControllerApi.md#get_device_by_id_using_get) | **GET** /api/device/{deviceId} | getDeviceById
+[**get_device_credentials_by_device_id_using_get**](DeviceControllerApi.md#get_device_credentials_by_device_id_using_get) | **GET** /api/device/{deviceId}/credentials | getDeviceCredentialsByDeviceId
+[**get_device_types_using_get**](DeviceControllerApi.md#get_device_types_using_get) | **GET** /api/device/types | getDeviceTypes
+[**get_devices_by_entity_group_id_using_get**](DeviceControllerApi.md#get_devices_by_entity_group_id_using_get) | **GET** /api/entityGroup/{entityGroupId}/devices{?limit,startTime,endTime,ascOrder,offset} | getDevicesByEntityGroupId
+[**get_devices_by_ids_using_get**](DeviceControllerApi.md#get_devices_by_ids_using_get) | **GET** /api/devices{?deviceIds} | getDevicesByIds
+[**get_tenant_device_using_get**](DeviceControllerApi.md#get_tenant_device_using_get) | **GET** /api/tenant/devices{?deviceName} | getTenantDevice
+[**get_tenant_devices_using_get**](DeviceControllerApi.md#get_tenant_devices_using_get) | **GET** /api/tenant/devices{?type,textSearch,idOffset,textOffset,limit} | getTenantDevices
+[**get_user_devices_using_get**](DeviceControllerApi.md#get_user_devices_using_get) | **GET** /api/user/devices{?type,textSearch,idOffset,textOffset,limit} | getUserDevices
+[**re_claim_device_using_delete**](DeviceControllerApi.md#re_claim_device_using_delete) | **DELETE** /api/customer/device/{deviceName}/claim | reClaimDevice
+[**save_device_credentials_using_post**](DeviceControllerApi.md#save_device_credentials_using_post) | **POST** /api/device/credentials | saveDeviceCredentials
+[**save_device_using_post**](DeviceControllerApi.md#save_device_using_post) | **POST** /api/device{?accessToken,entityGroupId} | saveDevice
+
+# **claim_device_using_post1**
+> DeferredResultResponseEntity claim_device_using_post1(device_name, body=body, sub_customer_id=sub_customer_id)
+
+claimDevice
+
+### Example
+```python
+from __future__ import print_function
+import time
+import pyTB
+from pyTB.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: X-Authorization
+configuration = pyTB.Configuration()
+configuration.api_key['X-Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = pyTB.DeviceControllerApi(pyTB.ApiClient(configuration))
+device_name = 'device_name_example' # str | deviceName
+body = pyTB.ClaimRequest() # ClaimRequest | claimRequest (optional)
+sub_customer_id = 'sub_customer_id_example' # str | subCustomerId (optional)
+
+try:
+    # claimDevice
+    api_response = api_instance.claim_device_using_post1(device_name, body=body, sub_customer_id=sub_customer_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DeviceControllerApi->claim_device_using_post1: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **device_name** | **str**| deviceName | 
+ **body** | [**ClaimRequest**](ClaimRequest.md)| claimRequest | [optional] 
+ **sub_customer_id** | **str**| subCustomerId | [optional] 
+
+### Return type
+
+[**DeferredResultResponseEntity**](DeferredResultResponseEntity.md)
+
+### Authorization
+
+[X-Authorization](../README.md#X-Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_device_using_delete**
+> delete_device_using_delete(device_id)
+
+deleteDevice
+
+### Example
+```python
+from __future__ import print_function
+import time
+import pyTB
+from pyTB.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: X-Authorization
+configuration = pyTB.Configuration()
+configuration.api_key['X-Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = pyTB.DeviceControllerApi(pyTB.ApiClient(configuration))
+device_id = 'device_id_example' # str | deviceId
+
+try:
+    # deleteDevice
+    api_instance.delete_device_using_delete(device_id)
+except ApiException as e:
+    print("Exception when calling DeviceControllerApi->delete_device_using_delete: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **device_id** | **str**| deviceId | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[X-Authorization](../README.md#X-Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **find_by_query_using_post1**
+> list[Device] find_by_query_using_post1(body)
+
+findByQuery
+
+### Example
+```python
+from __future__ import print_function
+import time
+import pyTB
+from pyTB.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: X-Authorization
+configuration = pyTB.Configuration()
+configuration.api_key['X-Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = pyTB.DeviceControllerApi(pyTB.ApiClient(configuration))
+body = pyTB.DeviceSearchQuery() # DeviceSearchQuery | query
+
+try:
+    # findByQuery
+    api_response = api_instance.find_by_query_using_post1(body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DeviceControllerApi->find_by_query_using_post1: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**DeviceSearchQuery**](DeviceSearchQuery.md)| query | 
+
+### Return type
+
+[**list[Device]**](Device.md)
+
+### Authorization
+
+[X-Authorization](../README.md#X-Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_customer_devices_using_get**
+> TextPageDataDevice get_customer_devices_using_get(customer_id, limit, type=type, text_search=text_search, id_offset=id_offset, text_offset=text_offset)
+
+getCustomerDevices
+
+### Example
+```python
+from __future__ import print_function
+import time
+import pyTB
+from pyTB.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: X-Authorization
+configuration = pyTB.Configuration()
+configuration.api_key['X-Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = pyTB.DeviceControllerApi(pyTB.ApiClient(configuration))
+customer_id = 'customer_id_example' # str | customerId
+limit = 'limit_example' # str | limit
+type = 'type_example' # str | type (optional)
+text_search = 'text_search_example' # str | textSearch (optional)
+id_offset = 'id_offset_example' # str | idOffset (optional)
+text_offset = 'text_offset_example' # str | textOffset (optional)
+
+try:
+    # getCustomerDevices
+    api_response = api_instance.get_customer_devices_using_get(customer_id, limit, type=type, text_search=text_search, id_offset=id_offset, text_offset=text_offset)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DeviceControllerApi->get_customer_devices_using_get: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customer_id** | **str**| customerId | 
+ **limit** | **str**| limit | 
+ **type** | **str**| type | [optional] 
+ **text_search** | **str**| textSearch | [optional] 
+ **id_offset** | **str**| idOffset | [optional] 
+ **text_offset** | **str**| textOffset | [optional] 
+
+### Return type
+
+[**TextPageDataDevice**](TextPageDataDevice.md)
+
+### Authorization
+
+[X-Authorization](../README.md#X-Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_device_by_id_using_get**
+> Device get_device_by_id_using_get(device_id)
+
+getDeviceById
+
+### Example
+```python
+from __future__ import print_function
+import time
+import pyTB
+from pyTB.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: X-Authorization
+configuration = pyTB.Configuration()
+configuration.api_key['X-Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = pyTB.DeviceControllerApi(pyTB.ApiClient(configuration))
+device_id = 'device_id_example' # str | deviceId
+
+try:
+    # getDeviceById
+    api_response = api_instance.get_device_by_id_using_get(device_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DeviceControllerApi->get_device_by_id_using_get: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **device_id** | **str**| deviceId | 
+
+### Return type
+
+[**Device**](Device.md)
+
+### Authorization
+
+[X-Authorization](../README.md#X-Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_device_credentials_by_device_id_using_get**
+> DeviceCredentials get_device_credentials_by_device_id_using_get(device_id)
+
+getDeviceCredentialsByDeviceId
+
+### Example
+```python
+from __future__ import print_function
+import time
+import pyTB
+from pyTB.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: X-Authorization
+configuration = pyTB.Configuration()
+configuration.api_key['X-Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = pyTB.DeviceControllerApi(pyTB.ApiClient(configuration))
+device_id = 'device_id_example' # str | deviceId
+
+try:
+    # getDeviceCredentialsByDeviceId
+    api_response = api_instance.get_device_credentials_by_device_id_using_get(device_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DeviceControllerApi->get_device_credentials_by_device_id_using_get: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **device_id** | **str**| deviceId | 
+
+### Return type
+
+[**DeviceCredentials**](DeviceCredentials.md)
+
+### Authorization
+
+[X-Authorization](../README.md#X-Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_device_types_using_get**
+> list[EntitySubtype] get_device_types_using_get()
+
+getDeviceTypes
+
+### Example
+```python
+from __future__ import print_function
+import time
+import pyTB
+from pyTB.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: X-Authorization
+configuration = pyTB.Configuration()
+configuration.api_key['X-Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = pyTB.DeviceControllerApi(pyTB.ApiClient(configuration))
+
+try:
+    # getDeviceTypes
+    api_response = api_instance.get_device_types_using_get()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DeviceControllerApi->get_device_types_using_get: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**list[EntitySubtype]**](EntitySubtype.md)
+
+### Authorization
+
+[X-Authorization](../README.md#X-Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_devices_by_entity_group_id_using_get**
+> TimePageDataDevice get_devices_by_entity_group_id_using_get(entity_group_id, limit, start_time=start_time, end_time=end_time, asc_order=asc_order, offset=offset)
+
+getDevicesByEntityGroupId
+
+### Example
+```python
+from __future__ import print_function
+import time
+import pyTB
+from pyTB.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: X-Authorization
+configuration = pyTB.Configuration()
+configuration.api_key['X-Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = pyTB.DeviceControllerApi(pyTB.ApiClient(configuration))
+entity_group_id = 'entity_group_id_example' # str | entityGroupId
+limit = 56 # int | Page link limit
+start_time = 789 # int | startTime (optional)
+end_time = 789 # int | endTime (optional)
+asc_order = true # bool | ascOrder (optional)
+offset = 'offset_example' # str | offset (optional)
+
+try:
+    # getDevicesByEntityGroupId
+    api_response = api_instance.get_devices_by_entity_group_id_using_get(entity_group_id, limit, start_time=start_time, end_time=end_time, asc_order=asc_order, offset=offset)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DeviceControllerApi->get_devices_by_entity_group_id_using_get: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **entity_group_id** | **str**| entityGroupId | 
+ **limit** | **int**| Page link limit | 
+ **start_time** | **int**| startTime | [optional] 
+ **end_time** | **int**| endTime | [optional] 
+ **asc_order** | **bool**| ascOrder | [optional] 
+ **offset** | **str**| offset | [optional] 
+
+### Return type
+
+[**TimePageDataDevice**](TimePageDataDevice.md)
+
+### Authorization
+
+[X-Authorization](../README.md#X-Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_devices_by_ids_using_get**
+> list[Device] get_devices_by_ids_using_get(device_ids)
+
+getDevicesByIds
+
+### Example
+```python
+from __future__ import print_function
+import time
+import pyTB
+from pyTB.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: X-Authorization
+configuration = pyTB.Configuration()
+configuration.api_key['X-Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = pyTB.DeviceControllerApi(pyTB.ApiClient(configuration))
+device_ids = 'device_ids_example' # str | deviceIds
+
+try:
+    # getDevicesByIds
+    api_response = api_instance.get_devices_by_ids_using_get(device_ids)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DeviceControllerApi->get_devices_by_ids_using_get: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **device_ids** | **str**| deviceIds | 
+
+### Return type
+
+[**list[Device]**](Device.md)
+
+### Authorization
+
+[X-Authorization](../README.md#X-Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_tenant_device_using_get**
+> Device get_tenant_device_using_get(device_name)
+
+getTenantDevice
+
+### Example
+```python
+from __future__ import print_function
+import time
+import pyTB
+from pyTB.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: X-Authorization
+configuration = pyTB.Configuration()
+configuration.api_key['X-Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = pyTB.DeviceControllerApi(pyTB.ApiClient(configuration))
+device_name = 'device_name_example' # str | deviceName
+
+try:
+    # getTenantDevice
+    api_response = api_instance.get_tenant_device_using_get(device_name)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DeviceControllerApi->get_tenant_device_using_get: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **device_name** | **str**| deviceName | 
+
+### Return type
+
+[**Device**](Device.md)
+
+### Authorization
+
+[X-Authorization](../README.md#X-Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_tenant_devices_using_get**
+> TextPageDataDevice get_tenant_devices_using_get(limit, type=type, text_search=text_search, id_offset=id_offset, text_offset=text_offset)
+
+getTenantDevices
+
+### Example
+```python
+from __future__ import print_function
+import time
+import pyTB
+from pyTB.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: X-Authorization
+configuration = pyTB.Configuration()
+configuration.api_key['X-Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = pyTB.DeviceControllerApi(pyTB.ApiClient(configuration))
+limit = 'limit_example' # str | limit
+type = 'type_example' # str | type (optional)
+text_search = 'text_search_example' # str | textSearch (optional)
+id_offset = 'id_offset_example' # str | idOffset (optional)
+text_offset = 'text_offset_example' # str | textOffset (optional)
+
+try:
+    # getTenantDevices
+    api_response = api_instance.get_tenant_devices_using_get(limit, type=type, text_search=text_search, id_offset=id_offset, text_offset=text_offset)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DeviceControllerApi->get_tenant_devices_using_get: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **str**| limit | 
+ **type** | **str**| type | [optional] 
+ **text_search** | **str**| textSearch | [optional] 
+ **id_offset** | **str**| idOffset | [optional] 
+ **text_offset** | **str**| textOffset | [optional] 
+
+### Return type
+
+[**TextPageDataDevice**](TextPageDataDevice.md)
+
+### Authorization
+
+[X-Authorization](../README.md#X-Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_user_devices_using_get**
+> TextPageDataDevice get_user_devices_using_get(limit, type=type, text_search=text_search, id_offset=id_offset, text_offset=text_offset)
+
+getUserDevices
+
+### Example
+```python
+from __future__ import print_function
+import time
+import pyTB
+from pyTB.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: X-Authorization
+configuration = pyTB.Configuration()
+configuration.api_key['X-Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = pyTB.DeviceControllerApi(pyTB.ApiClient(configuration))
+limit = 'limit_example' # str | limit
+type = 'type_example' # str | type (optional)
+text_search = 'text_search_example' # str | textSearch (optional)
+id_offset = 'id_offset_example' # str | idOffset (optional)
+text_offset = 'text_offset_example' # str | textOffset (optional)
+
+try:
+    # getUserDevices
+    api_response = api_instance.get_user_devices_using_get(limit, type=type, text_search=text_search, id_offset=id_offset, text_offset=text_offset)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DeviceControllerApi->get_user_devices_using_get: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **str**| limit | 
+ **type** | **str**| type | [optional] 
+ **text_search** | **str**| textSearch | [optional] 
+ **id_offset** | **str**| idOffset | [optional] 
+ **text_offset** | **str**| textOffset | [optional] 
+
+### Return type
+
+[**TextPageDataDevice**](TextPageDataDevice.md)
+
+### Authorization
+
+[X-Authorization](../README.md#X-Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **re_claim_device_using_delete**
+> DeferredResultResponseEntity re_claim_device_using_delete(device_name)
+
+reClaimDevice
+
+### Example
+```python
+from __future__ import print_function
+import time
+import pyTB
+from pyTB.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: X-Authorization
+configuration = pyTB.Configuration()
+configuration.api_key['X-Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = pyTB.DeviceControllerApi(pyTB.ApiClient(configuration))
+device_name = 'device_name_example' # str | deviceName
+
+try:
+    # reClaimDevice
+    api_response = api_instance.re_claim_device_using_delete(device_name)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DeviceControllerApi->re_claim_device_using_delete: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **device_name** | **str**| deviceName | 
+
+### Return type
+
+[**DeferredResultResponseEntity**](DeferredResultResponseEntity.md)
+
+### Authorization
+
+[X-Authorization](../README.md#X-Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **save_device_credentials_using_post**
+> DeviceCredentials save_device_credentials_using_post(body)
+
+saveDeviceCredentials
+
+### Example
+```python
+from __future__ import print_function
+import time
+import pyTB
+from pyTB.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: X-Authorization
+configuration = pyTB.Configuration()
+configuration.api_key['X-Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = pyTB.DeviceControllerApi(pyTB.ApiClient(configuration))
+body = pyTB.DeviceCredentials() # DeviceCredentials | deviceCredentials
+
+try:
+    # saveDeviceCredentials
+    api_response = api_instance.save_device_credentials_using_post(body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DeviceControllerApi->save_device_credentials_using_post: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**DeviceCredentials**](DeviceCredentials.md)| deviceCredentials | 
+
+### Return type
+
+[**DeviceCredentials**](DeviceCredentials.md)
+
+### Authorization
+
+[X-Authorization](../README.md#X-Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **save_device_using_post**
+> Device save_device_using_post(body, access_token=access_token, entity_group_id=entity_group_id)
+
+saveDevice
+
+### Example
+```python
+from __future__ import print_function
+import time
+import pyTB
+from pyTB.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: X-Authorization
+configuration = pyTB.Configuration()
+configuration.api_key['X-Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = pyTB.DeviceControllerApi(pyTB.ApiClient(configuration))
+body = pyTB.Device() # Device | device
+access_token = 'access_token_example' # str | accessToken (optional)
+entity_group_id = 'entity_group_id_example' # str | entityGroupId (optional)
+
+try:
+    # saveDevice
+    api_response = api_instance.save_device_using_post(body, access_token=access_token, entity_group_id=entity_group_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DeviceControllerApi->save_device_using_post: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**Device**](Device.md)| device | 
+ **access_token** | **str**| accessToken | [optional] 
+ **entity_group_id** | **str**| entityGroupId | [optional] 
+
+### Return type
+
+[**Device**](Device.md)
+
+### Authorization
+
+[X-Authorization](../README.md#X-Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
