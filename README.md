@@ -218,7 +218,7 @@ except ApiException as e:
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *//dashboard.digitalconstructionhub.ovh/*
+All URIs are relative to your TB host
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
