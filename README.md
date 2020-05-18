@@ -20,7 +20,7 @@ If the python package is hosted on Github, you can install directly from Github
 ```sh
 pip install git+https://github.com/tlobbri/pyTB.git
 ```
-(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/GIT_USER_ID/GIT_REPO_ID.git`)
+(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/tlobbri/pyTB.git`)
 
 Then import the package:
 ```python
@@ -44,6 +44,69 @@ import pyTB
 ## Getting Started
 
 Please follow the [installation procedure](#installation--usage) and then run the following:
+
+1. Basic Example :
+```python
+#first some imports...
+import pyTB
+
+import json
+import pandas as pd
+
+import time
+import pyTB
+from pyTB.rest import ApiException
+from pprint import pprint
+ 
+ 
+# Configure API key authorization: X-Authorization
+ 
+
+configuration = pyTB.Configuration()
+ 
+configuration.host = "https://dashboard.digitalconstructionhub.ovh"
+ 
+configuration.default_headers={}
+configuration.default_headers["Content-Type"] = "application/json"
+configuration.default_headers["Accept"] = "application/json"
+ 
+configuration.debug = False
+configuration.login(login = 'MON_EMAIL@BBRI.be', password="MoN_PaSSWORD_H!PER_S2cure8")
+ 
+ 
+tbClient = pyTB.ApiClient(configuration)
+#each dedicated API must be first loaded and instantiated
+deviceControllerApi=pyTB.DeviceControllerApi(tbClient)
+deviceApiControllerApi=pyTB.DeviceApiControllerApi(tbClient)
+ 
+
+try:
+    #get the 10 first list of devices held by the logged user
+    devices = deviceControllerApi.get_user_devices_using_get(limit=10).data
+ 
+    #converting it into a panda DataFrame
+    d= pd.DataFrame()
+    for dev in devices:
+        d= d.append(dev.to_dict(), ignore_index=True)
+    devices = d 
+ 
+ 
+    #getting the device named 'device 1'
+    device = devices[devices['name'] == 'device 1']
+ 
+    #obtaining its id
+    device_id  = device.id.values[0]['id']
+    #obtaining its credential
+    deviceCredential = deviceControllerApi.get_device_credentials_by_device_id_using_get(device_id=device_id)
+    
+    #post Telemetry a = 10.1
+    deviceApiControllerApi.post_telemetry_using_post( body={'a' : 10.1}, device_token=deviceCredential.credentials_id)
+ 
+except ApiException as e:
+    print("Exception when calling AuthControllerApi->change_password_using_post: %s\n" % e)
+```
+
+2. Detailed  Example : 
 
 ```python
 from __future__ import print_function
