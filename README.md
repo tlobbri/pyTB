@@ -64,7 +64,7 @@ from pprint import pprint
 
 configuration = pyTB.Configuration()
  
-configuration.host = "https://dashboard.digitalconstructionhub.ovh"
+configuration.host = "https://MY_TBSERVER.IO"
  
 configuration.default_headers={}
 configuration.default_headers["Content-Type"] = "application/json"
