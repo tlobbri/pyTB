@@ -152,11 +152,11 @@ class RESTClientObject(object):
         try:
             # For `POST`, `PUT`, `PATCH`, `OPTIONS`, `DELETE`
             if method in ['POST', 'PUT', 'PATCH', 'OPTIONS', 'DELETE']:
-                #print('-->url : %s' % url)
+                logger.debug('-->url : %s' % url)
                 id1 = url.find('{?')
                 id2 = url.find('}')
                 if (id1!=-1): url = url[0:id1]  + url[id2+1:-1]
-                #print('-->url : %s' % url)
+                logger.debug('-->url : %s' % url)
                 if query_params:
                     url += '?' + urlencode(query_params)
                 if re.search('json', headers['Content-Type'], re.IGNORECASE):
@@ -208,11 +208,11 @@ class RESTClientObject(object):
                     raise ApiException(status=0, reason=msg)
             # For `GET`, `HEAD`
             else:
-                #print('-->url : %s' % url)
+                logger.debug('-->url : %s' % url)
                 id1 = url.find('{?')
                 id2 = url.find('}')
                 if (id1!=-1): url = url[0:id1]  + url[id2+1:-1]
-                #print('-->url : %s' % url)
+                logger.debug('-->url : %s' % url)
                 r = self.pool_manager.request(method, url,
                                               fields=query_params,
                                               preload_content=_preload_content,
