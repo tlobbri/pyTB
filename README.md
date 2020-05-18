@@ -71,7 +71,7 @@ configuration.default_headers["Content-Type"] = "application/json"
 configuration.default_headers["Accept"] = "application/json"
  
 configuration.debug = False
-configuration.login(login = 'MON_EMAIL@BBRI.be', password="MoN_PaSSWORD_H!PER_S2cure8")
+configuration.login(login = 'MON_EMAIL@SERVER.IO', password="MoN_PaSSWORD_H!PER_S2cure8")
  
  
 tbClient = pyTB.ApiClient(configuration)
