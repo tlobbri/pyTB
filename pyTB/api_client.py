@@ -152,7 +152,7 @@ class ApiClient(object):
             _request_timeout=_request_timeout)
 
         self.last_response = response_data
-
+        print(response_data)
         return_data = response_data
         if _preload_content:
             # deserialize response data
@@ -229,7 +229,11 @@ class ApiClient(object):
         except ValueError:
             data = response.data
 
-        return self.__deserialize(data, response_type)
+        
+        if response_type == 'DeferredResultResponseEntity':
+            return data
+        else:
+            return self.__deserialize(data, response_type)
 
     def __deserialize(self, data, klass):
         """Deserializes dict, list, str into an object.
